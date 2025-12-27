@@ -247,6 +247,7 @@ MonoBehaviour:
   fireRateBonus: 0
   moveSpeedBonus: 0
   pickupRadiusBonus: 0
+  damageReductionBonus: 0
   projectileBonus: 0
   healthRegenPerSecond: 0
   maxWeaponDamageBonus: 1.5
@@ -254,6 +255,7 @@ MonoBehaviour:
   maxMoveSpeedBonus: 0.5
   maxFireRateBonus: 1.5
   maxHealthRegen: 10
+  maxDamageReduction: 0.6
 --- !u!4 &4369898
 Transform:
   m_ObjectHideFlags: 0
@@ -685,7 +687,7 @@ MonoBehaviour:
   zombiePrefab: {fileID: 4331847303380393968, guid: 280d85b20ad59e24dae7ac2e853202d8, type: 3}
   player: {fileID: 460895515}
   spawnRadius: 15
-  spawnRate: 1
+  spawnRate: 2
   increaseZombieCountTime: 30
 --- !u!4 &152396841
 Transform:
@@ -1628,6 +1630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 100
+  damageReduction: 0
   poolPrefab: {fileID: 0}
   healthSlider: {fileID: 572306}
   OnDie:
@@ -1973,7 +1976,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f2ecac135f63cab489e893d3ee0115e6, type: 2}
   - {fileID: 11400000, guid: 296fd7336f9ae004eb4d54af32628bbb, type: 2}
   - {fileID: 11400000, guid: 7b95c89878a085046b8bb893f14de53b, type: 2}
-  - {fileID: 11400000, guid: 0fb0d2e01b1043b4d9621a2ac0ed74ad, type: 2}
+  - {fileID: 11400000, guid: 3d6c12da56926514fa560f36bcb85474, type: 2}
+  - {fileID: 11400000, guid: b1c32265e23b66e449aa88a77750e140, type: 2}
   upgradeUI: {fileID: 457089974}
 --- !u!4 &473490615
 Transform:

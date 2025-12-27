@@ -3,6 +3,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Vector3 moveInput;
+    Health playerHealth;
+
+    private void Start()
+    {
+        playerHealth = GetComponent<Health>();
+    }
 
     void Update()
     {
@@ -11,6 +17,9 @@ public class PlayerController : MonoBehaviour
         float v = Input.GetAxisRaw("Vertical");
 
         moveInput = new Vector3(h, 0, v).normalized;
+
+        playerHealth.Heal(StatManager.Instance.healthRegenPerSecond * Time.deltaTime);
+        playerHealth.damageReduction = StatManager.Instance.damageReductionBonus;
     }
 
     void FixedUpdate()

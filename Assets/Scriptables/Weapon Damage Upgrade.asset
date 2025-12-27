@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDamageUpgradeSO
   upgradeName: Weapon Damage
   description: Increase your weapon damage by 15%
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 63bbaaa97d34b3d469ffd828fce7fc84, type: 3}
   maxStacks: 5
   currentStacks: 0
   bonusPerStack: 0.15

@@ -33,10 +33,10 @@ public class XPOrb : MonoBehaviour
     }
 
     // Called by PlayerMagnet
-    public void Magnetize(float speedMultiplier)
+    public void Magnetize()
     {
         magnetized = true;
-        currentSpeed = baseSpeed * speedMultiplier;
+        currentSpeed = baseSpeed;
     }
 
     void OnTriggerEnter(Collider other)

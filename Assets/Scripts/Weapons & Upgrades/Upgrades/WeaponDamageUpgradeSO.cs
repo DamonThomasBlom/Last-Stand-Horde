@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Upgrades/Stats/Weapon Damage")]
+[CreateAssetMenu(menuName = "Upgrades/Weapon Damage")]
 public class WeaponDamageUpgradeSO : UpgradeSO
 {
     public float bonusPerStack = 0.15f;

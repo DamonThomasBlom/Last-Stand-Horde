@@ -27,6 +27,7 @@ public class StatManager : MonoBehaviour
     [Range(0, 5)] public float fireRateBonus;      // affects cooldown
     [Range(0, 5)] public float moveSpeedBonus;
     [Range(0, 5)] public float pickupRadiusBonus;
+    [Range(0, 0.9f)] public float damageReductionBonus;
 
     [Header("Flat Bonuses")]
     public int projectileBonus;
@@ -38,6 +39,7 @@ public class StatManager : MonoBehaviour
     public float maxMoveSpeedBonus = 0.5f; // +50%
     public float maxFireRateBonus = 1.5f;  // soft cap
     public float maxHealthRegen = 20f;
+    public float maxDamageReduction = 0.6f;
 
     // ---- FINAL CALCULATED STATS ----
 
@@ -89,6 +91,11 @@ public class StatManager : MonoBehaviour
     public void AddHealthRegen(float amount)
     {
         healthRegenPerSecond = Mathf.Min(healthRegenPerSecond + amount, maxHealthRegen);
+    }
+
+    public void AddDamageReduction(float amount)
+    {
+        damageReductionBonus = Mathf.Min(damageReductionBonus + amount, maxDamageReduction);
     }
 
 #if UNITY_EDITOR

@@ -125,5 +125,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::XPOrb
   xpValue: 1
-  magnetSpeed: 10
-  magnetRange: 1
+  baseSpeed: 8

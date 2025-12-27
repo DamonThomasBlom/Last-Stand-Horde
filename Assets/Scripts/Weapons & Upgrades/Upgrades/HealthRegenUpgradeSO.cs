@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Upgrades/Stats/Health Regen")]
+[CreateAssetMenu(menuName = "Upgrades/Health Regen")]
 public class HealthRegenUpgradeSO : UpgradeSO
 {
     public float regenPerStack = 2.5f;

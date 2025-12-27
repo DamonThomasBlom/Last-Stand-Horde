@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     public float maxHealth = 3;
+    public float damageReduction = 0f; // Basically armor 
     public GameObject poolPrefab;
     public Slider healthSlider;
     public UnityEvent OnDie = new UnityEvent();
@@ -35,12 +36,22 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
+        dmg *= (1f - damageReduction);
+
         currentHealth -= dmg;
 
         if (currentHealth <= 0)
             Die();
         else
             OnTakeDamage.Invoke();
+
+        UpdateHealthSlider();
+    }
+
+    public void Heal(float health)
+    {
+        currentHealth += health;
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
 
         UpdateHealthSlider();
     }

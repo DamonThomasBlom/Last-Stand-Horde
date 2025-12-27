@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FireRateUpgrade
   upgradeName: Fire Rate
   description: Increase fire rate by 20%
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: b4a9e0ba44e86204a8a66f896043a0c2, type: 3}
+  maxStacks: 5
+  currentStacks: 0
   bonus: 0.2

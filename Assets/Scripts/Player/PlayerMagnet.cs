@@ -7,13 +7,11 @@ using UnityEditor;
 
 public class PlayerMagnet : MonoBehaviour
 {
-    float magnetStrength = 10f;
     List<XPOrb> nearbyOrbs = new();
 
     void Update()
     {
         float effectiveRange = StatManager.Instance.PickupRadius;
-        float effectiveStrength = magnetStrength;
 
         // Find nearby orbs
         Collider[] colliders = Physics.OverlapSphere(transform.position, effectiveRange);
@@ -24,7 +22,7 @@ public class PlayerMagnet : MonoBehaviour
             if (orb != null && !nearbyOrbs.Contains(orb))
             {
                 nearbyOrbs.Add(orb);
-                orb.Magnetize(effectiveStrength);
+                orb.Magnetize();
             }
         }
 
