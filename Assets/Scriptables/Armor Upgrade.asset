@@ -15,6 +15,7 @@ MonoBehaviour:
   upgradeName: Armor Upgrade
   description: Increase your armor by 10%
   icon: {fileID: 21300000, guid: 80498de08b569c24c904071b64c7b5e9, type: 3}
+  iconColour: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   maxStacks: 5
   currentStacks: 0
   reductionPerStack: 0.1

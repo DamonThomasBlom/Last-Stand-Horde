@@ -15,6 +15,7 @@ MonoBehaviour:
   upgradeName: Magnet Range
   description: Increase your magnet range by 100%
   icon: {fileID: 21300000, guid: 9da04edf81f64814e9a1a6597c913cf6, type: 3}
+  iconColour: {r: 0, g: 0, b: 1, a: 1}
   maxStacks: 5
   currentStacks: 0
   bonus: 1

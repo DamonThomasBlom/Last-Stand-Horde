@@ -5,11 +5,16 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     public float maxHealth = 3;
-    public float damageReduction = 0f; // Basically armor 
+    public float damageReduction = 0f; // Basically armor 0-1 (100%)
     public GameObject poolPrefab;
     public Slider healthSlider;
+
+    [Header("Events")]
     public UnityEvent OnDie = new UnityEvent();
     public UnityEvent OnTakeDamage = new UnityEvent();
+
+    [Header("Dubug")]
+    public bool invincible;
 
     float currentHealth;
 
@@ -36,6 +41,8 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
+        if (invincible) return;
+
         dmg *= (1f - damageReduction);
 
         currentHealth -= dmg;

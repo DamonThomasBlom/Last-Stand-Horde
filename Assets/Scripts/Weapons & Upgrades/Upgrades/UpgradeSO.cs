@@ -5,6 +5,7 @@ public abstract class UpgradeSO : ScriptableObject
     public string upgradeName;
     public string description;
     public Sprite icon;
+    public Color iconColour = Color.white;
 
     [Header("Stacking")]
     public int maxStacks = 5;

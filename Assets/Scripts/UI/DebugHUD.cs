@@ -65,7 +65,7 @@ public class DebugHUD : MonoBehaviour
         debugInfo += $"<size=40><b>PLAYER STATS</b></size>\n";
         if (playerHealth != null)
         {
-            debugInfo += $"<color=#00FF00>Health:</color> {playerHealth.GetHealth()}/{playerHealth.maxHealth} ";
+            debugInfo += $"<color=#00FF00>Health:</color> {playerHealth.GetHealth().ToString("F0")}/{playerHealth.maxHealth} ";
             debugInfo += $"({(playerHealth.GetHealth() / (float)playerHealth.maxHealth) * 100:F0}%)\n";
         }
 
@@ -131,19 +131,16 @@ public class DebugHUD : MonoBehaviour
         // Spawner Info
         if (spawner != null)
         {
-            debugInfo += $"\n<size=40><b>SPAWNER</b></size>\n";
-            var spawnerType = spawner.GetType();
-            var spawnRateField = spawnerType.GetField("spawnRate");
-            if (spawnRateField != null)
-            {
-                float spawnRate = (float)spawnRateField.GetValue(spawner);
-                debugInfo += $"<color=#FFFF00>Spawn Rate:</color> {spawnRate:F2}s ({1f / spawnRate:F1}/sec)\n";
-            }
+            debugInfo += $"\n<size=40><b>WAVE DEBUG</b></size>\n";
 
-            // Try to get wave info
-            var waveField = spawnerType.GetField("currentWave");
-            if (waveField != null)
-                debugInfo += $"<color=#FFFF00>Wave:</color> {waveField.GetValue(spawner)}\n";
+            debugInfo += $"<color=#00FFFF>Wave:</color> {spawner.CurrentWave}\n";
+            debugInfo += $"<color=#00FFFF>Wave Progress:</color> {(spawner.WaveProgress * 100f):F0}%\n";
+            debugInfo += $"<color=#00FFFF>Pressure:</color> {spawner.CurrentPressure:F2}\n";
+
+            debugInfo += $"<color=#00FFFF>Spawn Interval:</color> {spawner.CurrentSpawnInterval:F2}s ";
+            debugInfo += $"({(1f / Mathf.Max(0.01f, spawner.CurrentSpawnInterval)):F1}/sec)\n";
+
+            debugInfo += $"<color=#00FFFF>Waiting For Clear:</color> {spawner.WaitingForClear}\n";
         }
 
         // Performance
@@ -187,7 +184,7 @@ public class DebugHUD : MonoBehaviour
 
         if (GUILayout.Button("Toggle God Mode", buttonStyle))
             if (playerHealth != null)
-                playerHealth.enabled = !playerHealth.enabled;
+                playerHealth.invincible = !playerHealth.invincible;
 
         GUILayout.EndArea();
     }

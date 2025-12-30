@@ -19,13 +19,12 @@ public class GunController : MonoBehaviour
 
     void Shoot()
     {
-        ZombieController[] zombies = FindObjectsOfType<ZombieController>();
-        if (zombies.Length == 0) return;
+        if (ZombieController.all.Count == 0) return;
 
         ZombieController closest = null;
         float minDist = Mathf.Infinity;
 
-        foreach (var z in zombies)
+        foreach (var z in ZombieController.all)
         {
             float d = Vector3.Distance(transform.position, z.transform.position);
             if (d < minDist)

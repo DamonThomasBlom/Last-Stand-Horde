@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 6732502443367808514}
   - component: {fileID: 355567887931389007}
   - component: {fileID: 2727828925837100391}
-  m_Layer: 0
+  - component: {fileID: -1585800230848068779}
+  m_Layer: 6
   m_Name: Zombie
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -119,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 30
+  damageReduction: 0
   poolPrefab: {fileID: 4331847303380393968}
   healthSlider: {fileID: 0}
   OnDie:
@@ -127,6 +129,23 @@ MonoBehaviour:
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls: []
+  invincible: 0
+--- !u!114 &-1585800230848068779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331847303380393968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79cc85a02a9da9c42a7b8e6d17af1d8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
+  enableDamageFlash: 1
+  flashDuration: 0.1
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
+  includeChildren: 1
 --- !u!1 &4937551306704641976
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +157,7 @@ GameObject:
   - component: {fileID: 4025185232673030496}
   - component: {fileID: 7337849813548358682}
   - component: {fileID: 5339952203932966622}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +212,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 74117f645ca87544896e430b75e9a316, type: 2}
+  - {fileID: 2100000, guid: 8fb2fbdb48ba2f14b940f24422233f8f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

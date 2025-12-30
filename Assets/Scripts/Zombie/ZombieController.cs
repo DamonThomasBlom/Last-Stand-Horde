@@ -19,7 +19,7 @@ public class ZombieController : MonoBehaviour
     float startY; // Store initial Y position
     float attackTimer;
 
-    static List<ZombieController> all = new();
+    public static List<ZombieController> all = new();
 
     void OnEnable()
     {
@@ -41,9 +41,11 @@ public class ZombieController : MonoBehaviour
         PoolManager.Instance.Spawn(XPOrbPrefab, transform.position, Quaternion.identity);
     }
 
-    public void ApplyKnockback(Vector3 dir)
+    public void ApplyKnockback(Vector3 dir, float customForce = 0)
     {
-        knockbackVelocity = dir * knockbackForce;
+        float knockback = customForce == 0 ? knockbackForce : customForce;
+
+        knockbackVelocity = dir * knockback;
         knockbackVelocity.y = 0; // Ensure knockback is horizontal only
     }
 

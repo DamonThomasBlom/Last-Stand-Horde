@@ -15,6 +15,7 @@ MonoBehaviour:
   upgradeName: Fire Rate
   description: Increase fire rate by 20%
   icon: {fileID: 21300000, guid: b4a9e0ba44e86204a8a66f896043a0c2, type: 3}
+  iconColour: {r: 1, g: 0, b: 0, a: 1}
   maxStacks: 5
   currentStacks: 0
   bonus: 0.2

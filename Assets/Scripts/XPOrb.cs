@@ -43,7 +43,7 @@ public class XPOrb : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerXP>().AddXP(xpValue);
+            other.GetComponent<PlayerXP>().AddXP((int)(xpValue * (1 + StatManager.Instance.XPBonus)));
             PoolManager.Instance.Despawn(gameObject);
         }
     }

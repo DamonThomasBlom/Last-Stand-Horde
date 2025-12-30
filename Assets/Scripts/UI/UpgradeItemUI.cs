@@ -12,6 +12,7 @@ public class UpgradeItemUI : MonoBehaviour
     public void Setup(UpgradeSO upgrade)
     {
         icon.sprite = upgrade.icon;
+        icon.color = upgrade.iconColour;
         nameText.text = upgrade.upgradeName;
         descriptionText.text = upgrade.description;
 

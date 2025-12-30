@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class StatManager : MonoBehaviour
@@ -21,6 +22,7 @@ public class StatManager : MonoBehaviour
     public float baseBulletRange = 10f;
     public float baseMoveSpeed = 5f;
     public float basePickupRadius = 2.5f;
+    public float baseSpiningBladeDamage = 4f;
 
     [Header("Bonus Stats (Additive %)")]
     [Range(0, 5)] public float damageBonus;        // 0.25 = +25%
@@ -28,6 +30,8 @@ public class StatManager : MonoBehaviour
     [Range(0, 5)] public float moveSpeedBonus;
     [Range(0, 5)] public float pickupRadiusBonus;
     [Range(0, 0.9f)] public float damageReductionBonus;
+    [Range(0, 5)] public float spiningBladeDamageBonus;
+    [Range(0, 5)] public float XPBonus;
 
     [Header("Flat Bonuses")]
     public int projectileBonus;
@@ -60,6 +64,9 @@ public class StatManager : MonoBehaviour
 
     public float PickupRadius =>
         basePickupRadius * (1f + pickupRadiusBonus);
+
+    public float SpinningBladeDamage => 
+        baseSpiningBladeDamage * (1f + spiningBladeDamageBonus);
 
     // ---- UPGRADE METHODS ----
 
@@ -96,6 +103,28 @@ public class StatManager : MonoBehaviour
     public void AddDamageReduction(float amount)
     {
         damageReductionBonus = Mathf.Min(damageReductionBonus + amount, maxDamageReduction);
+    }
+
+    int currentBladeLevel = 0;
+
+    public void LevelUpBladeWeapon(float percent)
+    {
+        currentBladeLevel++;
+
+        if (currentBladeLevel == 1)
+        {
+            FindObjectOfType<SpinningBladeWeapon>()?.ActivateWeapon();
+        }
+        else
+        {
+            spiningBladeDamageBonus += percent;
+            FindObjectOfType<SpinningBladeWeapon>()?.AddBlade();
+        }
+    }
+
+    internal void AddBonusXP(float bonus)
+    {
+        XPBonus += bonus;
     }
 
 #if UNITY_EDITOR

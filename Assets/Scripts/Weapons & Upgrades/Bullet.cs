@@ -4,7 +4,6 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 12f;
     public float lifeTime = 2f;
-    public GameObject prefab;
 
     float timer;
 
