@@ -9,7 +9,7 @@ public class DamageFlash : MonoBehaviour
     public Color flashColor = Color.red;
     public bool includeChildren = true; // Whether to include child objects
 
-    private MeshRenderer[] meshRenderers;
+    private Renderer[] meshRenderers;
     private Color[] originalColors;
     private Coroutine flashCoroutine;
     private Health healthComponent;
@@ -38,11 +38,11 @@ public class DamageFlash : MonoBehaviour
         // Get mesh renderers
         if (includeChildren)
         {
-            meshRenderers = GetComponentsInChildren<MeshRenderer>();
+            meshRenderers = GetComponentsInChildren<Renderer>();
         }
         else
         {
-            meshRenderers = GetComponents<MeshRenderer>();
+            meshRenderers = GetComponents<Renderer>();
         }
 
         // Only proceed if we found mesh renderers
