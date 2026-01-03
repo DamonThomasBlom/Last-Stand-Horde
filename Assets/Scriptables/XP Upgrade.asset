@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::XPUpgradeSO
   upgradeName: XP Upgrade
   description: Increase your XP gain by 10%
-  icon: {fileID: 0}
-  iconColour: {r: 1, g: 1, b: 1, a: 1}
+  icon: {fileID: 21300000, guid: b4a9e0ba44e86204a8a66f896043a0c2, type: 3}
+  iconColour: {r: 0.7686275, g: 0.427451, b: 1, a: 1}
   maxStacks: 5
   currentStacks: 0
   bonus: 0.1

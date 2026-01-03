@@ -38,7 +38,7 @@ public class ZombieController : MonoBehaviour
 
     void OnDie()
     {
-        PoolManager.Instance.Spawn(XPOrbPrefab, transform.position, Quaternion.identity);
+        PoolManager.Instance.Spawn(XPOrbPrefab, transform.position, Quaternion.Euler(45, 45, 45));
     }
 
     public void ApplyKnockback(Vector3 dir, float customForce = 0)

@@ -57,7 +57,7 @@ public class RPGRocket : MonoBehaviour
             // Distance-based falloff (VERY IMPORTANT for balance)
             float distance = Vector3.Distance(transform.position, hit.transform.position);
             float t = Mathf.InverseLerp(explosionRadius, 0f, distance);
-            float damage = explosionDamage * t;
+            float damage = explosionDamage * t * (1 + StatManager.Instance.rpgDamageMultiplier);
 
             Debug.Log("Rocket Damage - " + damage.ToString("F0"));
             health.TakeDamage(damage);

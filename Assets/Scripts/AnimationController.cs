@@ -10,6 +10,7 @@ public class AnimationController : MonoBehaviour
 
     public float isRunningThreshold = 0.1f;
     public float speedMultiplier = 1f;
+    public float rotationSpeed = 10;
 
     private Vector3 lastPosition;
     private float currentSpeed;
@@ -48,11 +49,11 @@ public class AnimationController : MonoBehaviour
             animator.SetFloat("Speed", Mathf.Max(currentSpeed * speedMultiplier, .5f));
 
             // Optional: Rotate to face movement direction if we're moving
-            if (positionChange.magnitude > 0.01f)
+            if (positionChange.magnitude > 0.001f)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(positionChange.normalized);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation,
-                                                    10f * Time.deltaTime);
+                                                    rotationSpeed * Time.deltaTime);
             }
         }
 

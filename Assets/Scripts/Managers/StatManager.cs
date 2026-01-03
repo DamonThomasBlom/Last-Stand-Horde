@@ -32,10 +32,14 @@ public class StatManager : MonoBehaviour
     [Range(0, 0.9f)] public float damageReductionBonus;
     [Range(0, 5)] public float spiningBladeDamageBonus;
     [Range(0, 5)] public float XPBonus;
+    [Range(0, 5)] public int rpgRocketCount = 1;
+    [Range(0, 5)] public float rpgDamageMultiplier = 0f;
 
     [Header("Flat Bonuses")]
     public int projectileBonus;
     public float healthRegenPerSecond;
+
+    public bool hasRPG = false;
 
     [Header("Caps")]
     public float maxWeaponDamageBonus = 1.5f; // +150%
@@ -122,9 +126,24 @@ public class StatManager : MonoBehaviour
         }
     }
 
-    internal void AddBonusXP(float bonus)
+    public void AddBonusXP(float bonus)
     {
         XPBonus += bonus;
+    }
+
+    public void UnlockRPG()
+    {
+        hasRPG = true;
+    }
+
+    public void AddRpgRocket()
+    {
+        rpgRocketCount++;
+    }
+
+    public void MultiplyRpgDamage(float multiplier)
+    {
+        rpgDamageMultiplier += multiplier;
     }
 
 #if UNITY_EDITOR

@@ -251,8 +251,11 @@ MonoBehaviour:
   damageReductionBonus: 0
   spiningBladeDamageBonus: 0
   XPBonus: 0
+  rpgRocketCount: 1
+  rpgDamageMultiplier: 0
   projectileBonus: 0
   healthRegenPerSecond: 0
+  hasRPG: 0
   maxWeaponDamageBonus: 1.5
   maxProjectiles: 6
   maxMoveSpeedBonus: 0.5
@@ -1395,7 +1398,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &244108868
 Transform:
   m_ObjectHideFlags: 0
@@ -1424,7 +1427,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   rocketPrefab: {fileID: 460474080272195619, guid: 63a2f40ce3e1a1248b2eb7166fc6d58e, type: 3}
-  fireRate: 1
+  fireRate: 5
+  multipleRocketDelay: 1.5
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1517,7 +1521,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalRotation: {x: 0.5, y: -0, z: -0, w: 0.8660254}
   m_LocalPosition: {x: 0, y: 10, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1585,7 +1589,7 @@ MonoBehaviour:
   zoomSpeed: 0.05
   maxZoomOrth: 15
   minZoomOrth: 7
-  maxZoomPers: 30
+  maxZoomPers: 20
   minZoomPers: 15
   zoomEnabled: 1
   cameraOffset: {x: 0, y: 10, z: -6}
@@ -2201,9 +2205,9 @@ Transform:
   m_Children:
   - {fileID: 1033320068}
   - {fileID: 487780067}
-  - {fileID: 330585546}
   - {fileID: 244108868}
   - {fileID: 674521338}
+  - {fileID: 330585546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &460895516
@@ -2455,6 +2459,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b1c32265e23b66e449aa88a77750e140, type: 2}
   - {fileID: 11400000, guid: 04fcf915336118a4882fe9af68dca9d1, type: 2}
   - {fileID: 11400000, guid: acb71955e3bcce442b2b436ef44d8df9, type: 2}
+  - {fileID: 11400000, guid: e9fada75845fce345bcc183e03783643, type: 2}
   upgradeUI: {fileID: 457089974}
 --- !u!4 &473490615
 Transform:
@@ -6084,6 +6089,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 36cf725e453a789498a5617356ce1ae3, type: 2}
+    - target: {fileID: 2340937317575541823, guid: cc59c7b784612dc449b6f9c81c51444f, type: 3}
+      propertyPath: rotationSpeed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 8453057830850083342, guid: cc59c7b784612dc449b6f9c81c51444f, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
